@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+</head>
+
+<body>
+    <h1>회원가입</h1>
+    <form action="" method="get">
+        <div>
+            <b style="background-color: rgb(0, 68, 255); color: white; padding: 2px 5px;">필수항목</b>
+        </div>
+        <div>
+            <b><label for="id">아이디</label></b> <br>
+            <input type="text">
+        </div>
+        <div>
+            <b><label for="password">비밀번호</label></b> <br>
+            <input type="text">
+        </div>
+        <div>
+            <b><label for="email">이메일</label></b> <br>
+            <input type="text" placeholder="example@example.com">
+        </div>
+        <div>
+            <b><label for="name">성명</label></b> <br>
+            <input type="text" placeholder="홍길동">
+        </div>
+        <div>
+            <b><label for="age">나이</label></b> <br>
+            <input type="text">
+        </div>
+        <div>
+            <b style="background-color: rgb(0, 68, 255); color: white; padding: 2px 5px;">당신에 대해서 알고 싶어요!</b>
+        </div>
+        <div>
+            <p><b>취미를 선택해 주세요.</b></p>
+            <b>
+                <input type="radio" name="hobby"><span>게임하기</span>
+                <input type="radio" name="hobby"><span>음악듣기</span>
+                <input type="radio" name="hobby"><span>아이스음료 마시기</span>
+            </b>
+        </div>
+        <div>
+            <p><b>좋아하는 음료를 선택해 주세요. (중복선택가능)</b></p>
+            <b>
+                <input type="checkbox"><span>쉐이크 종류 음료</span>
+                <input type="checkbox"><span>티 종류 음료</span>
+                <input type="checkbox"><span>커피 종류 음료</span>
+            </b>
+        </div>
+        <div>
+            <b><label for="date">동아리 참석 가능 날짜</label></b>
+            <input type="date" name="date">
+        </div>
+        <div>
+            <b><label for="choice">얼,죽,아에서 참여하고 싶은 모임은?: </b></label>
+            <select name="choice" id="">
+                <option value="choice">--선택해주세요--</option>
+            </select>
+        </div>
+        <div>
+            <p><b>포트폴리오 제출하기</b></p>
+            <b><label for="file-upload" style="display: block; width: 100%; 
+                padding: 7px 0; border: 1px solid #ccc; 
+                text-align: center; cursor: pointer; background-color: #fff;">
+                    업로드하기</label></b>
+            <input type="file" id="file-upload" style="display: none;">
+        </div>
+        <div>
+            <b><label for="content">마지막으로 하고 싶은 말은?</label></b><br>
+            <textarea name="content" cols="88" rows="10"></textarea>
+        </div>
+        <div style="display: flex; gap: 10px;">
+            <button type="reset"
+                style="display: block; width: 50%; background-color: rgb(63, 63, 63); color: #f7f6f6; padding: 2px 5px;"><b>다시하기</b></button>
+            <button type="submit"
+                style="display: block; width: 50%; background-color: rgb(0, 68, 255); color: #fff; padding: 2px 5px;"><b>제출하기</b></button>
+
+        </div>
+    </form>
+</body>
+
+</html>

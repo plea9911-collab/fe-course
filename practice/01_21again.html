@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <h1>웹 개발 교육 상담 문의</h1>
+        <p>HTML,CSS, JavaScript, React, 프론트엔드 교육 과젱에 대해 궁금한 내용을 남겨주세요. 담당자가 확인 후 안내해 드립니다.</p>
+        <form action="#" method="get">
+            <fieldset>
+                <legend>상담 신청 정보</legend>
+                <div>
+                    <label for="name">이름<span>*</span></label>
+                    <input type="text" placeholder="이름을 입력하세요">
+                    <p>실명을 입력해 주세요.</p>
+                </div>
+                <div>
+                    <label for="email">이메일<span>*</span></label>
+                    <input type="email" placeholder="example@email.com">
+                    <p>답변을 받을 이메일 주소를 입력해 주세요.</p>
+                </div>
+                <div>
+                    <label for="contect">이메일</label>
+                    <input type="tel" placeholder="010-0000-0000">
+                </div>
+                <div>
+                    <label for="course">관심과정<span>*</span></label>
+                    <select name="choice">
+                        <option value="choice">선택하세요</option>
+                        <option value="HTML">HTML</option>
+                        <option value="css">CSS</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="React">React</option>
+                        <option value="fullstack">Fullstack 개발자</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="content">문의 내용<span>*</span></label>
+                    <textarea name="content" placeholder="궁금한 내용을 자세히 입력해 주세요" cols="20" rows="2"></textarea>
+                    <p>예: 수업 일정, 수강 대상, 비용, 프로젝트 중심 수업 여부 등</p>
+                </div>
+                <div>
+                    <input type="checkbox">
+                    <label for="checkbox">개인정보 수입 및 이용에 동의합니다.<span>*</span></label>
+                </div>
+                <div>
+                    <button type="submit">상담 문의 보내기</button>
+                </div>
+        </form>
+        </fieldset>
+    </main>
+</body>
+
+</html>

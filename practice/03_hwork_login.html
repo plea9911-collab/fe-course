@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <form action="#" method="get">
+        <i class="fa-solid fa-crown fa-xl" style="color: rgb(255, 212, 59);"></i>
+        <div>
+            <label for="profile-upload" style="cursor: pointer;">
+                <img src="your-image-path.png" alt="프로필 설정하기" width="150">
+            </label>
+            <input type="file" id="profile-upload" accept="image/*" style="display: none;">
+        </div>
+        <div>
+            <i class="fa-solid fa-envelope-open fa-lg" style="color: rgb(54, 57, 67);"></i>
+            <input type="email" name="emil" placeholder="Username">
+        </div>
+        <div>
+            <i class="fa-solid fa-lock fa-lg" style="color: rgb(54, 57, 67);"></i>
+            <input type="text" name="password" placeholder="Password">
+        </div>
+        <div>
+            <input type="radio" name="choice"><span>Remember me</span>
+            <input type="radio" name="choice"><span>Forget your password?</span>
+        </div>
+        <div>
+            <button type="submit">Login</button>
+        </div>
+    </form>
+</body>
+
+</html>
