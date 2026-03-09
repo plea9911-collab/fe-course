@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <meta name="description" content="seo">
 </head>
 
 <body>
@@ -20,21 +21,21 @@
                     <legend>상담 신청 정보</legend>
                     <div>
                         <label for="name">이름<span>*</span></label> <!--span 대신 sup가능-->
-                        <input type="text" name="name" placeholder="이름을 입력하세요">
+                        <input type="text" name="name" id="name" placeholder="이름을 입력하세요">
                         <p>실명을 입력해 주세요.</p>
                     </div>
                     <div>
                         <label for="email">이메일<span>*</span></label>
-                        <input type="text" name="email" placeholder="emample@email.com">
+                        <input type="text" name="email" id="email" placeholder="emample@email.com">
                         <p>답변을 받을 이메일 주소를 입력해 주세요.</p>
                     </div>
                     <div>
                         <label for="contect">연락처</label>
-                        <input type="tel" name="contect" placeholder="010-0000-0000">
+                        <input type="tel" name="contect" id="tel" placeholder="010-0000-0000">
                     </div>
                     <div>
                         <label for="course">관심과정</label>
-                        <select name="course">
+                        <select name="course" id="course">
                             <option value="선택">선택하세요</option>
                             <option value="html-css">HTML-CSS</option>
                             <option value="javascript">JavaScript</option>
@@ -44,16 +45,20 @@
                     </div>
                     <div>
                         <label for="message">문의 내용<span>*</span></label>
-                        <textarea name="message" cols="20" rows="2" placeholder="궁금한 내용을 자세히 입력해주세요."></textarea>
+                        <textarea name="message" cols="20" rows="2" placeholder="궁금한 내용을 자세히 입력해주세요."
+                            id="message"></textarea>
                         <p>예: 수업 일정, 수강 대상, 비용, 프로젝트 중심 수업 여부 등</p>
-                    </div> <!--개인정보 동의-->
-                    <input type="checkbox" name="agree">
-                    <label for="agree">개인정보 수집 및 이용에 동의합니다<sup>*</sup></label>
+                    </div>
+                    <div><!--개인정보 동의-->
+                        <input type="checkbox" name="agree" id="agree">
+                        <label for="agree">개인정보 수집 및 이용에 동의합니다<sup>*</sup></label>
+                    </div>
                     <div>
                         <button type="submit">상담 문의 보내기</button>
                     </div>
                 </fieldset>
             </form>
+            </main>
         </section>
     </main>
 </body>
