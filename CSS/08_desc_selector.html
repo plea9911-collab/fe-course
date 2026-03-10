@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descendent Selector</title>
+    <meta name="description" content="Descendent Selector">
+    <style>
+        /*
+            descendent selector : 조상[space]자손
+            child selector : 부모[>]자식
+            인접한sibilings selector : 기준태그[+]형제태그
+            모든 sibilings selector : 기준태그[~]형제태그
+        */
+
+        h1 {
+            color: blue;
+            background-color: aquamarine;
+        }
+        body li ul {
+            background-color: yellow;
+        }
+        #main-menu a {
+            color: red;
+        }
+        #sub-menu a {
+            color: green;
+        }
+        #sub-menu li > a {
+            text-decoration: none;
+        }
+        li#main-menu + li {
+            background-color: tomato;
+        }
+        li#main-menu + li > a {
+            color: yellow;
+            text-decoration: none;
+        }
+        h2 + p {
+            background-color: silver;
+        }
+        h2 ~ p {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Descendent Selector</h1>
+    <nav>
+        <ul >
+            <li id="main-menu">
+                <a href="#">menu1</a>
+                <ul id="sub-menu">
+                    <li><a href="#">sub-menu</a></li>
+                    <li><a href="#">sub-menu</a></li>
+                </ul>
+            </li>
+            <li><a href="#">menu2</a></li>
+            <li><a href="#">menu3</a></li>
+        </ul>
+    </nav>
+    <h2>Siilings Selector</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At voluptas esse vitae praesentium culpa facilis, explicabo animi, aut consequuntur sunt quibusdam, ipsa labore numquam accusamus. Deserunt provident id totam temporibus.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At voluptas esse vitae praesentium culpa facilis, explicabo animi, aut consequuntur sunt quibusdam, ipsa labore numquam accusamus. Deserunt provident id totam temporibus.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At voluptas esse vitae praesentium culpa facilis, explicabo animi, aut consequuntur sunt quibusdam, ipsa labore numquam accusamus. Deserunt provident id totam temporibus.</p>
+</body>
+</html>

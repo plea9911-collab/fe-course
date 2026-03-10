@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Align</title>
+    <meta name="description" content="Text Align">
+    <style>
+        p { background-color: aquamarine;}
+        span { background-color: yellow;}
+        div { border: 1px solid tomato;}
+        .b-left { 
+            text-align: left; 
+            word-spacing: 50px; 
+            line-height: 50px;
+            text-indent: 0px; /* 들여쓰기 */
+            /* margin-left: 100px; */
+        }
+        .b-right { text-align: right; }
+        .b-center { text-align: center;}
+        .i-left { 
+            border: 1px solid blue;
+            text-align: left; 
+            word-spacing: 50px; 
+            line-height: 50px;
+            text-indent: 50px; /* inline-level 에서는 적용 안됨❌ */
+        }
+        .i-right { text-align: right;}
+        .i-center { text-align: center;}
+        .d1 { text-align: left;}
+        .d2 { text-align: right;}
+        .d3 { text-align: center;}
+
+        img {
+            width: 100px;
+            height: 100px;
+        }
+        .img-block {
+            text-align: center;
+            word-spacing: 50px;
+        }
+        .b-justify {
+            width: 300px;
+            background-color: chartreuse;
+            text-align: justify;
+            /* text-transform: capitalize; 대소문자 변형*/
+        }
+    </style>
+</head>
+<body>
+    <h1>Text Align</h1>
+    <h3>block-level</h3>
+    <p class="b-left">text align :: left</p>
+    <p class="b-right">text align :: right</p>
+    <p class="b-center">text align :: center</p>
+    <p class="b-justify">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem nesciunt mollitia quaerat porro, molestiae officiis ducimus veritatis suscipit numquam omnis labore expedita eum nulla neque eligendi hic quis, adipisci consequuntur!</p>
+
+    <h3>Inline-level</h3>
+    <div class="d1">
+        <span class="i-left">text align :: left</span>
+        <button>button</button>
+        <a href="#">NAVER</a>
+    </div>
+    <div class="d2"><span>text align :: right</span></div>
+    <div class="d3"><span>text align :: center</span></div>
+    <hr>
+    <span>text align :: left</span>
+    <span>text align :: right</span>
+    <span>text align :: center</span>
+
+    <h3>inline-block-level</h3>
+    <div class="img-block">
+        <img src="../images/img_seo.png" alt="animal">
+        <img src="../images/img_seo.png" alt="animal">
+        <img src="../images/img_seo.png" alt="animal">
+        <img src="../images/img_seo.png" alt="animal">
+        <img src="../images/img_seo.png" alt="animal">
+    </div>
+</body>
+</html>
