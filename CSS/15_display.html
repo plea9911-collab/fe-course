@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Displat Style</title>
+    <meta name="viewport" content="width=device-width, initial-scale">
+    <style>
+        /*display : block, inline, line-block level*/
+        div {
+            /* block-level width, height ⭕*/
+            width: 50%;
+            height: 100px;
+            display: block;
+            background-color: aquamarine;
+        }
+        span, button, input {
+            /* inline-level width, height ❌ */
+            width: 100px;
+            height: 30px;
+            display: inline;
+            background-color: tomato;
+        }
+        img {
+            /* inline-block-level width, height ⭕*/
+            display: inline-block;
+            width: 200px; height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Display Style</h1>
+    <hr>
+    <div>block-level</div>
+    <span>inline-level</span>
+    <button>Login</button>
+    <input type="text" value="name">
+    <img src="../images/img_seo.png" alt="inline-block image">
+</body>
+</html>

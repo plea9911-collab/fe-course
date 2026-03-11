@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overflow Style</title>
+    <style>
+        /* p1: 가로-200, 세로 :200, 배경색 */
+        /* p1: 가로-300, 세로 :200, 배경색 */
+        /* p1: 가로-400, 세로 :100, 배경색 */
+        .p1 {width: 100px; height: 200px;
+            background-color: aquamarine;
+            overflow-x: hidden;}
+        .p2 {width: 500px; height: 500px;
+            background-color: skyblue;
+            overflow-y: hidden;}
+        .p3 {width: 400px; height: 100px;
+            background-color: hotpink;
+            overflow: hidden;}
+        img {
+            width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Overflow Style</h1>
+    <p class="p1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus id quae hic aut dolore omnis accusamus deserunt at suscipit fuga ullam odio doloremque explicabo dolorum laboriosam natus harum, voluptatem reiciendis.</p>
+        <div class="p2">
+            <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus id quae hic aut dolore omnis accusamus deserunt at suscipit fuga ullam odio doloremque explicabo dolorum laboriosam natus harum, voluptatem reiciendis.
+            <img src="../images/Mad.jpg" alt="movie poster">
+            </p>
+        </div>
+    <p class="p3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus id quae hic aut dolore omnis accusamus deserunt at suscipit fuga ullam odio doloremque explicabo dolorum laboriosam natus harum, voluptatem reiciendis.</p>
+</body>
+</html>
