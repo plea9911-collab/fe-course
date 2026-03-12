@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Float Style</title>
+    <style>
+        /* .box-group {
+            float: left;
+        } */
+        .box-group div {
+            width: 100px; height: 100px;
+            /* display: inline-block; */
+        }
+        .d1 {background-color: aquamarine;
+            float: left;
+        }
+        .d2 {background-color: salmon;
+            float: left;
+        }
+        .d3 {background-color: hotpink;
+            float: left;
+        }
+        .box-group p {
+            clear: left;
+        }
+        .img-group {
+            width: 500px;
+            height: 300px;
+            border: 1px solid #ccc;
+        }
+        .img-group img {
+            width: 100px;
+            height: 100px;
+            float: right;
+            padding: 20px;
+        }
+        p.no float { clear: both; /* float 속성을 삭제 */ }
+    </style>
+</head>
+<body>
+    <h1>Float Style : block-level의 엘리먼트를 한줄로 정렬하여 배치</h1>
+        <div class="box-group">
+        <div class="d1"></div>
+        <div class="d2"></div>
+        <div class="d3"></div>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+            Illo asperiores nam aliquam a tempora ducimus deleniti excepturi. 
+            Facere earum nisi pariatur odio ipsa, voluptatibus numquam 
+            aspernatur laboriosam rem nemo veniam.</p>
+    </div>
+    <div class="img-group">
+        <img src="../images/img_seo.png" alt="동물">
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+            Dolore eligendi quo delectus, consequatur excepturi 
+            neque sapiente. Necessitatibus nihil dolore sed quisquam soluta 
+            dolorum animi, beatae aut minima. Illo, enim perspiciatis.</p>
+        <p class="no-float">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Minus, nam ipsam. Incidunt fugit recusandae reiciendis 
+            numquam qui ad quos pariatur assumenda harum, molestias 
+            labore aperiam nulla aliquam. Quam, exercitationem temporibus.</p>
+    </div>
+    
+</body>
+</html>
