@@ -6,7 +6,7 @@
  * -불린형(Boolean) : ture(1), false(0)
  * ✨정수형 범위(63bit : -2**31 ~ 2**31-1)안의 정수 선언시 Stack Frame에 저장
  * ✨정수형 범위(63bit : -2**31 ~ 2**31-1)를 넘어서면 Heap 저장
- * ✨실수형, 문자형은 Heap에 저장 후 ㅠㅗ인터(변수)는 Stack Frame에 저장
+ * ✨실수형, 문자형은 Heap에 저장 후 포인터(변수)는 Stack Frame에 저장
  * 
  * Reference DataType(창조형 데이터 타입) ->무조건 heap에 저장
  * -객체형(object, {}), 배열(Array []), 클래스(Class), JSON(객체형, 배열 모두 포함)
@@ -68,5 +68,5 @@ console.log(oo, typeof oo);
 console.log('----->데이터 타입 확인 및 비교');
 console.log(typeof xx == typeof xxx); // == : 값 비교
 console.log(typeof xx == typeof yy); // == : 값 비교, typeof 포함시 데이처타입 비교
-console.log( xx === yy); // === : 값 + 데이터타입 비교
+console.log( xx === yy); // === : 값 + 데이터타입 비교, false
 console.log( xx == yy); // == : 값 + 데이터타입 비교, 10=='10', ture
