@@ -33,6 +33,7 @@ hong.display();
 // hong.empno = '4566'; //사번 변경 불가, #
 console.log('empno 변경 -------------->');
 
-hong.setEmpNo('4567');
+hong.empno = '4567';
+// hong.setEmpNo('4567');
 console.log(hong.getEmpNo());
 
