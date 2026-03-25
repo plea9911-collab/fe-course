@@ -20,6 +20,10 @@ function Fruit(name, color, emoji) {
     this.display = () => {
         console.log(this.name, this.color, this.emoji);
     }
+    //총점 반환
+    //평균 반환
+    this.sum= () => { return this.kor + this.eng + this.math; }
+    this.avg= () => { return this.sum()}
 }
 
 let apple = new Fruit('apple','red','🍎')
@@ -69,4 +73,9 @@ lee.display();
 kim.display();
 james.display();
 
-console.log(scoreList);
+console.clear();
+console.log(`${hong.name} 총점/평균 = ${hong.sum}()/${hong.avg()}`);
+console.log(`${smith.name} 총점/평균 = ${smith.sum}()/${smith.avg()}`);
+console.log(`${lee.name} 총점/평균 = ${lee.sum}()/${lee.avg()}`);
+console.log(`${kim.name} 총점/평균 = ${kim.sum}()/${kim.avg()}`);
+console.log(`${james.name} 총점/평균 = ${james.sum}()/${james.avg()}`);
