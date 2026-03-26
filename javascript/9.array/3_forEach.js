@@ -1,0 +1,30 @@
+/**
+ * forEach 메소드는 Iterator 심볼 객체를 상속한 객체에서 사용됨
+ * -Iterator 상속 객체.forEach(callback)
+ * -Array(배열).forEach()
+ */
+
+let numbers = [1, 2, 3, 4, 5, 6];
+numbers.forEach((item, idx, obj) => console.log(`numbers[${idx}] = ${item} ,${obj}`));
+
+let fruits = new Array ('🍋', '🍎', '🍊', '🍏');
+// fruits.forEach(item => console.log(item));
+//'🍊' => '🍓'로 변경, 출력
+fruits.forEach((item, idx) => {
+    if(item === '🍊') {
+        fruits.splice(idx, 1, '🍓');
+    }
+    // console.log(item);
+});
+console.log(fruits);
+
+//'🍓'=>'🍋'로 변경, 출력, 확장 for..of
+console.log(fruits);
+let idx = 0;
+for(let item of fruits) {
+    if(item === '🍓') {
+        fruits.splice(idx, 1, '🍋');
+    }
+    idx++;
+}
+console.log(fruits);
