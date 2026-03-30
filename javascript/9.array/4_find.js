@@ -4,10 +4,10 @@
  * -하나의 요소만 반환!!
  * 
  * findIndex : 배열에 검색하는 요소의 인덱스 반환
- * -배열객체.findIndex(callback)
+ * -배열"객체".findIndex(callback)
  */
 let fruits = new Array('🍏', '🍊', '🍎', '🍋', '🍅')
-let findObj =fruits.find((item) => (item === '🍊'));
+let findObj =fruits.find((item) => (item === '🍋'));
 console.log(`findObj = ${findObj}`);
 
 let  findIdx = fruits.findIndex((item) => (item === '🍋'));
