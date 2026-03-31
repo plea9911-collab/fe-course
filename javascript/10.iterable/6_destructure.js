@@ -11,7 +11,7 @@ let [a, b, ...nlist] = numbers;
 console.log(a, b, nlist);
 
 //2. 오브젝트 리터럴
-// console.clear();
+console.clear();
 let hong = {
     name: '홍길동',
     age: 30,
@@ -35,7 +35,7 @@ const createObj = () => {
 // let price = 1000;
 // let source = '강원도';
 let {price=1000, source='강원도', emoji, aname, color} = createObj(); //구조분해할당할때 순서는 상관 없다. // 한줄에 변수 선언도 가능함
-// console.clear();
+console.clear();
 console.log(aname, color, emoji, price, source);
 
 
