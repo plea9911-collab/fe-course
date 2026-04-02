@@ -33,7 +33,7 @@ const openModal = (infoObj) => {
             <li>
                 ${
                     posters.map(poster => `
-                        <img scr="${poster}" style="wdith:100px;">
+                            <img src="${poster}" style="wdith:100px;">
                         `).join("")
                 }
             </li>
@@ -96,21 +96,24 @@ const handleBoxOffice = async() => {
         let kobisBoxOffice =  kobis.boxOfficeResult;
         let kobisBoxOfficeList = null;
         let posterList = [];
+        let posterObjects = [];
         if(type === 'Daily') {
             kobisBoxOfficeList =  kobis.boxOfficeResult.dailyBoxOfficeList;
         } else {
             kobisBoxOfficeList =  kobis.boxOfficeResult.weeklyBoxOfficeList;
         }
+        console.log(kobis);
 
         for(const movie of kobisBoxOfficeList) {
         //영화제목(movieNm), 개봉일(openDt)
         let movieNm = movie.movieNm;
-        let openDt =movie.openDt.split("-").reduce((acc, cur)=>acc+cur);
+        let openDt = movie.openDt.split("-").reduce((acc, cur)=>acc+cur);
         let posters = await searchMoviePoster(movieNm, openDt);
+        posterObjects.push(posters);
         if(posters.length !== 0) posterList.push(posters[0]);
         else posterList.push('');
     }
-    console.log(posterList);
+    console.log(posterObjects);
 
         let output = `
             <h1>${kobisBoxOffice.boxofficeType}</h1>
@@ -130,7 +133,7 @@ const handleBoxOffice = async() => {
                             <td>${movie.rank}</td>
                             <td>
                             <img src="${posterList[idx]}" style="width:80px">
-                            <a href="#" onclick="handleMovieInfo(${movie.movieCd}, ${movie.rank}, '${posterList[idx]}')">${movie.movieNm}</a></td>
+                            <a href="#" onclick="handleMovieInfo(${movie.movieCd}, ${movie.rank}, '${posterList[idx]}', '${posterObjects[idx]}')">${movie.movieNm}</a></td>
                             <td>${movie.openDt}</td>
                             <td>${parseInt(movie.audiCnt).toLocaleString()}</td>
                             <td>${parseInt(movie.audiAcc).toLocaleString()}</td>
