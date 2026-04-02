@@ -20,6 +20,7 @@ const openModal = (infoObj) => {
     let modal = document.querySelector('#modal');
     let modalBody = document.querySelector('#modal-body');
     let modalClose = document.querySelector('#modal-close');
+    let posters = infoObj.posterObj.split(",");
 
     modalClose.addEventListener('click', () => {
         modal.style.display = 'none';
@@ -29,6 +30,13 @@ const openModal = (infoObj) => {
     let output = `
         <h3>[${infoObj.rank}]${infoObj.movieNm}</h3>
         <ul>
+            <li>
+                ${
+                    posters.map(poster => `
+                        <img scr="${poster}" style="wdith:100px;">
+                        `).join("")
+                }
+            </li>
             <li><label>🎬🎥감독 : </label> ${infoObj.director}</li>
             <li><label>🧑👧배우 : </label> ${infoObj.actors}</li>
         </ul>
@@ -38,14 +46,36 @@ const openModal = (infoObj) => {
     modalBody.innerHTML = output;
 }
 
-const handleMovieInfo = async (movieCd, rank) => {
+const handleMovieInfo = async (movieCd, rank, poster, posterObj) => {
     let info = await getMovieInfo(movieCd);
     let movieNm = info.movieInfoResult.movieInfo.movieNm;
     let director = info.movieInfoResult.movieInfo.directors[0].peopleNm;
     let actors = info.movieInfoResult.movieInfo.actors[0].peopleNm;
-
+    
     console.log(info, movieNm, director, actors); 
-    openModal({movieNm, director, actors, rank});
+    openModal({movieNm, director, actors, rank, poster, posterObj});
+}
+
+
+//Poster 가져오기 : KMDB API
+const searchMoviePoster = async (movieNm, openDt) => {
+    const key = '59H5F0U0OFQB3R2261VM';
+    let kmdb_url = `http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api`;
+    kmdb_url += `/search_json2.jsp?collection=kmdb_new2&detail=Y`;
+    kmdb_url += `&title=${movieNm}`;
+    kmdb_url += `&releaseDts=${openDt}&ServiceKey=${key}`;
+
+    let response = await fetch(kmdb_url);
+    let kmdb = await response.json(); 
+    let data = kmdb?.Data?.[0]?.Result;
+    let poster = null;
+    if(data === null && data.length === 0) {
+        // poster = [];
+        return [];
+    } else {
+        return await kmdb?.Data[0]?.Result[0]?.posters.split("|");
+    }
+    // return poster;
 }
 
 
@@ -65,12 +95,22 @@ const handleBoxOffice = async() => {
         let kobis = await getJson(type, targetDt); 
         let kobisBoxOffice =  kobis.boxOfficeResult;
         let kobisBoxOfficeList = null;
+        let posterList = [];
         if(type === 'Daily') {
             kobisBoxOfficeList =  kobis.boxOfficeResult.dailyBoxOfficeList;
         } else {
             kobisBoxOfficeList =  kobis.boxOfficeResult.weeklyBoxOfficeList;
         }
-console.log(kobis);
+
+        for(const movie of kobisBoxOfficeList) {
+        //영화제목(movieNm), 개봉일(openDt)
+        let movieNm = movie.movieNm;
+        let openDt =movie.openDt.split("-").reduce((acc, cur)=>acc+cur);
+        let posters = await searchMoviePoster(movieNm, openDt);
+        if(posters.length !== 0) posterList.push(posters[0]);
+        else posterList.push('');
+    }
+    console.log(posterList);
 
         let output = `
             <h1>${kobisBoxOffice.boxofficeType}</h1>
@@ -85,10 +125,12 @@ console.log(kobis);
                     <th>누적매출액</th>
                 </tr>
                 ${
-                    kobisBoxOfficeList.map((movie) => `
+                    kobisBoxOfficeList.map((movie, idx) => `
                         <tr>
                             <td>${movie.rank}</td>
-                            <td><a href="#" onclick="handleMovieInfo(${movie.movieCd}, ${movie.rank})">${movie.movieNm}</a></td>
+                            <td>
+                            <img src="${posterList[idx]}" style="width:80px">
+                            <a href="#" onclick="handleMovieInfo(${movie.movieCd}, ${movie.rank}, '${posterList[idx]}')">${movie.movieNm}</a></td>
                             <td>${movie.openDt}</td>
                             <td>${parseInt(movie.audiCnt).toLocaleString()}</td>
                             <td>${parseInt(movie.audiAcc).toLocaleString()}</td>
