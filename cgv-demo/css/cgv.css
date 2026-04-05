@@ -1,7 +1,7 @@
 /*******************************************
 *  title : header style
 *  author : hong@naver.com
-*  final date : 2024/0/24
+*  final date : 2026/04/02
 ********************************************/
 header {
     width: 100%;
@@ -575,8 +575,14 @@ footer {
     width: 100%;
     padding: 7px 10px;
 }
+.join-form ul li:nth-child(6) input:focus,
+.join-form ul li:nth-child(6) select:focus {
+    outline: none;
+    border: 2px solid var(--color-join-border);
+}
 .join-form ul li:first-child input:focus,
-.join-form ul li input:focus {
+.join-form ul li input:focus:not(.join-form ul li:nth-child(6) input)
+{
     border: none;
     outline: none;
 }
