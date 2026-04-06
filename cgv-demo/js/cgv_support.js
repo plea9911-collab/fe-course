@@ -16,10 +16,55 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     /** 테이블 생성 함수 */
-    createTable();
+    // createTable();
+    filterMenu('all'); //맨 처음 호출되는 테이블
+
+    let menuList = document.querySelectorAll('.filter-menu li a');
+    menuList.forEach(menu => {
+        menuList.forEach(menu => menu.id === 'all'? 
+            menuSelectColor(menu) : menuDefaultColor(menu));
+            
+        menu.addEventListener('click', () => {
+            menuList.forEach(menu => menuDefaultColor(menu));
+            menuSelectColor(menu);
+            filterMenu(menu.id);
+        });
+    });
 
 }); //window event
 
+function menuDefaultColor(menu) {
+    menu.style.background = "rgb(137,137,135)";
+    menu.style.borderLeft = `1px solid var(rgb(137,137,135))`;
+    menu.style.borderBottom = `2px solid var(rgb(137,137,135))`;
+}
+
+function menuSelectColor(menu) {
+    menu.style.background = "rgb(251, 67, 87)";
+    menu.style.borderLeft = `1px solid var(rgb(251, 67, 87))`;
+    menu.style.borderBottom = `2px solid var(rgb(251, 67, 87))`;
+}
+
+//filterMenu 함수 생성
+async function filterMenu(type) {
+    let filterList = null;
+    if(type === 'all') {
+        // createTable();
+        filterList = await getJson();
+    } else {
+        filterList = await filterData(type);
+    }
+    // return filterList;
+    createTable(filterList);
+}
+    
+//filterdata 함수 생성
+async function filterData(type) {
+    let data = await getJson();
+    // console.log(data);
+    return data.filter(item => item.type === type);
+    
+}
 
 //support.json JSON 데이터 가져오기
 async function getJson() {
@@ -27,11 +72,10 @@ async function getJson() {
     return response.json();
 }
 
-async function createTable() {
-    let list = await getJson();
-    // console.log('list =>', list);
+async function createTable(list) {
+    // let list = await getJson();
     let output = `
-        <table>
+        <table id='stable'>
             <thead>
                 <tr>
                     <th>번호</th>
@@ -61,6 +105,6 @@ async function createTable() {
             </tfoot>
         </table>
     `;
-
+    document.querySelector('#stable')?.remove();
     document.querySelector('#before-table').insertAdjacentHTML('afterEnd', output);
 }

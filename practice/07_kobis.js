@@ -6,6 +6,10 @@ let getMovieInfo = () => {
     return response.json();
 }
 
+const getjson = () => {
+    let data_url =``
+}
+
 //handleBoxOffice의 함수 정의
 const handleBoxOffice () => {
     let type = document.querySelector('#type')
