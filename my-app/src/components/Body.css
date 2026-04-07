@@ -1,7 +1,35 @@
-.body {
+/* .body {
     width: 1200px;
     height: 700px;
     margin: auto;
     text-align: center;
     background-color: tomato;
+} */
+.body-container {
+    text-align: center;
+    padding: 50px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+.quote-text {
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #333;
+    min-height: 80px; /* 명언 길이에 따라 들쑥날쑥하지 않게 고정 */
+}
+
+.change-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #61dafb;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.change-btn:hover {
+    background-color: #21a1f1;
 }
