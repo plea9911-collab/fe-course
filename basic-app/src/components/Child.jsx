@@ -1,10 +1,9 @@
 
-export default function Child({ children }) {
-
-    return (
+export default function Child({ children }) { 
+    return(
         <>
-            <h1>Hello~ </h1>
-            {children}
+        <h1>Hello~</h1>
+        {children} 
         </>
     )
 }

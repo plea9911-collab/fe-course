@@ -1,4 +1,4 @@
-import Child from "./Child.jsx";
+import Child from "./Child.jsx"
 
 function PropsComp() {
     return(
@@ -7,18 +7,12 @@ function PropsComp() {
 }
 
 export default function Parent(props) {
-    let info = {
-        name: "홍길동",
-        age: "20",
-        address: "서울시"
-    }
-    return(
+    return (
         <>
-        <h1>Parent:: {props.name}</h1>
-        <Child>
-            <PropsComp />
-        </Child>
-
+            <h1>Parent:: {props.name} </h1>
+            <Child>         
+                <PropsComp />
+            </Child>         
         </>
     )
 }
