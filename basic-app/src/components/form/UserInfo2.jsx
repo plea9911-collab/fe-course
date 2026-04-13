@@ -5,64 +5,54 @@
  */
 import { useRef, useState } from 'react';
 import { validateUserInfo2 } from '../../util/validate.js';
-import TextInput from './TextIput.jsx';
+import TextInput from './TextInput.jsx';
 
 export default function UserInfo() {
     const forms = [
-        { label: "이름", type: "text", name: "name" },
-        { label: "나이", type: "text", name: "age" },
-        { label: "주소", type: "text", name: "address" },
-        { label: "직업", type: "text", name: "job" },
+        {label: "이름", type: "text", name: "name", isRequired: true},
+        {label: "나이", type: "text", name: "age" , isRequired: true},
+        {label: "주소", type: "text", name: "address", isRequired: false},
+        {label: "직업", type: "text", name: "job", isRequired: false},
     ];
     const refs = useRef({});
-    const [form, setForm] = useState({ name: '', age: '', address: '', job: '' });
+    const [form, setForm] = useState({name:'', age:'', address:'', job:''});
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setForm({ ...form, [name]: value });
+        const {name, value} = e.target;
+        setForm({...form, [name]:value});
     }
-    console.log('form--> \n', form);
-    console.log('refs--> \n', refs);
-
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        if (validateUserInfo2(refs)) {
-            console.log('submit => ', form);
+        if(validateUserInfo2(refs)) {        
+            console.log('submit => ', form);            
         }
     }
 
-    return (
+    return(
         <div>
             <h1>UserInfo2</h1>
             <form name="userInfoForm" onSubmit={handleSubmit}>
-                <ul>
-                    {forms.map((item, idx) =>
+                <ul> 
+                    {forms.map((item, idx) => 
                         <li key={idx}>
+                            {item.isRequired &&<span>✨</span>}'
                             <label htmlFor="name">{item.label}</label>
-                            {!form?.[item.name]?.trim() && <span style={{ color: 'red', fontSize: '0.6rem' }}> {item.label}을 입력해주세요</span>}
+                            { !form?.[item.name]?.trim() && <span style={{color:'red', fontSize:'0.6rem'}}> {item.label}을 입력해주세요</span> }
                             <div>
-                                <TextInput item={item}
-                                    value={form[item.name]}
-                                    handleChange={handleChange}
-                                    inputRef={(e) => refs[item.name] = e}
+                                <TextInput  item={item}
+                                            value={form[item.name]}
+                                            handleChange={handleChange} 
+                                            inputRef={(e) => refs.current[item.name] = e}                                           
                                 />
-                                {/* <input  type="text" 
-                                        id="name" 
-                                        name="name"
-                                        value={form.name}
-                                        onChange={handleChange}
-                                        ref={refs.nameRef}                                    
-                                        /> */}
                             </div>
                         </li>
-                    )}
+                    )}                   
                     <li>
                         <button type="submit">전송</button>
-                        <button type="button"
-                            onClick={() => setForm({ name: '', age: '', address: '', job: '' })}>다시쓰기</button>
+                        <button type="button" 
+                                onClick={()=> setForm({name:'', age:'', address:'', job:''})}>다시쓰기</button>
                     </li>
-
+                    
                 </ul>
             </form>
         </div>
