@@ -1,25 +1,25 @@
-/*************************************************
-        portfolio-static style sheet
+/*****************************************************
+    Portfolio-static style sheet
 
-        반복되는 스타일을 변수로 정의하고 --> var() 호출
-        변수, 상수 : --변수명, 상수명 = 값 정의;
-        예) --color--primary-white;
+    반복되는 스타일을 변수로 정의 --> var() 호출
+    변수, 상수 : --변수명,상수명 = 값 정의;
+    예) --color--primary = white;
 
-        ,header { color: var(--color--primary); }
-**************************************************/
-:root{
+    .header { color: var(--color--primary); }
+******************************************************/
+:root {
     /* color-list */
     --color-white: #fff;
-    --color-black: #050a19;
+    --color-black: #050a13;
     --color-accent: #03e9f9;
     --color-orange: #fd6413;
     --color-gray: #1b1e26;
 
-    /* container-size */
+    /* container size*/
     --max-size-container: 1200px;
 }
 
-/*-------Commons(공통) : 폰트, 여백, 패딩..---------*/
+/*----- Commons(공통) : 폰트, 여백, 패딩.. ----*/
 * {
     font-family: 'Open Sans', 'sans-serif';
     box-sizing: border-box;
@@ -54,7 +54,8 @@ section.container {
     margin: 0.5rem 0;
 }
 
-/*-------Header start---------*/
+
+/*----- Header start ----*/
 .header {
     background-color: var(--color-black);
     width: 100%;
@@ -72,14 +73,14 @@ section.container {
     gap: 8px;
     color: var(--color-white);
 }
-.header-logo-img{
+.header-logo-img {
     width: 36px;
     height: 36px;
 }
-.heaer-logo-title {
+.header-logo-title {
     font-size: 1.8rem;
 }
-ul.header-menu { /* 미디어 쿼리 적용시 셀렉터 형식이 동일해야함 !! */
+ul.header-menu { /* 미디어 쿼리 적용시 셀렉터 형식이 동일해야함 !!*/
     display: flex;
     gap: 4px;
 }
@@ -91,10 +92,18 @@ a.header-menu-item.active {
     border: 1px solid var(--color-accent);
     border-radius: 4px;
 }
+.header-toggle {
+    display: none;
+    position: absolute;
+    top: 1.3rem;
+    right: 1rem;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    font-size: 1.5rem;
+}
+/*----- Header end ----*/
 
-/*------ Header end ---------*/
-
-/*-------Home start---------*/
+/*----- Home start ----*/
 #home {
     background-color: var(--color-black);
     color: var(--color-white);
@@ -102,7 +111,7 @@ a.header-menu-item.active {
     padding-top: 7rem;
     text-align: center;
 }
-.home-avater {
+.home-avatar {
     width: 250px;
     height: 250px;
     border: 5px solid var(--color-accent);
@@ -118,27 +127,17 @@ a.header-menu-item.active {
 .home-description {
     font-size: 1.3rem;
 }
-.home-contect {
+.home-contact {
     display: inline-block;
-    padding: 1.5rem 1rem;
-    margin: 2rem; /* inline 레벨은 마진 적용 ❌ */
+    padding: 0.5rem 1rem;
+    margin: 2rem;  /* inline 레벨은 마진 적용 ❌ */
     background-color: var(--color-accent);
     color: var(--color-black);
     border-radius: 4px;
 }
-.header-toggle {
-    display: none;
-    position: absolute;
-    top: 1.3rem;
-    right: 1rem;
-    background-color: var(--color-black);
-    color: var(--color-white);
-    font-size: 1.5rem;
-}
+/*----- Home end ----*/
 
-/*-------Home end---------*/
-
-/*--------About start------*/
+/*----- About start ----*/
 .majors {
     display: flex;
     justify-content: space-between;
@@ -151,7 +150,7 @@ a.header-menu-item.active {
     color: var(--color-white);
     padding: 2rem 1rem;
     border-radius: 1rem;
-    box-shadow: 4px 8px 8px rgba(88, 104, 129, 0.38);
+    box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.38);
 }
 .major-icon {
     font-size: 4rem;
@@ -162,7 +161,6 @@ a.header-menu-item.active {
     font-size: 1.5rem;
     font-weight: 700;
     padding: 1rem 0;
-
 }
 .jobs {
     text-align: start;
@@ -173,8 +171,9 @@ a.header-menu-item.active {
     gap: 10px;
     margin-bottom: 1rem;
 }
-/*--------About end------*/
-/*--------Skills start------*/
+/*----- About end ----*/
+
+/*----- Skills start ----*/
 #skills {
     background-color: var(--color-gray);
     color: var(--color-white);
@@ -184,7 +183,7 @@ a.header-menu-item.active {
     grid-template-columns: 6fr 4fr;
     margin: 2rem 0;
     border-radius: 8px;
-    box-shadow: 4px 8px 8px rgba(88, 104, 129, 0.38);
+    box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.38);
     overflow: hidden;
 }
 .skills-title {
@@ -196,7 +195,6 @@ a.header-menu-item.active {
     grid-row: span 2;
     background-color: var(--color-black);
     padding: 1rem;
-
 }
 .skills-tools {
     padding: 1rem;
@@ -225,13 +223,16 @@ a.header-menu-item.active {
     background-color: var(--color-accent);
     height: 3px;
 }
-.bar-value.css  { width: 90%;}
-.bar-value.javascript  { width: 90%;}
-.bar-value.typescript  { width: 80%;}
-.bar-value.react  { width:79%;}
-.bar-value.nodejs  { width: 68%;}
-/*--------Skills end------*/
-/*--------Work start------*/
+.bar-value.html { width: 98%; }
+.bar-value.css { width: 90%; }
+.bar-value.javascript { width: 90%; }
+.bar-value.typescript { width: 80%; }
+.bar-value.react { width: 79%; }
+.bar-value.nodejs { width: 68%; }
+
+/*----- Skills end ----*/
+
+/*----- Work start ----*/
 #work {
     background-color: var(--color-black);
     color: var(--color-white);
@@ -278,7 +279,7 @@ a.header-menu-item.active {
     position: relative;
     overflow: hidden;
 }
-.project-img { 
+.project-img {
     width: 100%;
     border-radius: 8px;
 }
@@ -299,9 +300,9 @@ a.header-menu-item.active {
 .project-meta:hover {
     opacity: .8;
 }
-/*--------Work end------*/
+/*----- Work end ----*/
 
-/*--------Testmonials Start------*/
+/*----- Testimonials start ----*/
 .testimonials {
     margin: 3rem;
 }
@@ -318,12 +319,12 @@ a.header-menu-item.active {
     width: 150px;
     height: 150px;
     border-radius: 100%;
-    box-shadow: 4px 8px 8px rgba(88, 104, 129, 0.38);
+    box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.38);
 }
 .testimonial-text {
     padding: 1rem;
     border-radius: 8px;
-    box-shadow: 4px 8px 8px rgba(88, 104, 129, 0.38);
+    box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.38);
 }
 .testimonial-text-name {
     color: var(--color-accent);
@@ -336,10 +337,11 @@ a.header-menu-item.active {
     font-size: .9rem;
     font-weight: 500;
 }
-/*--------Testmonials end------*/
-/*--------Arrow Start------*/
+/*----- Testimonials end ----*/
+
+/*----- Arrow-up start ----*/
 .arrow-up {
-    position:fixed;
+    position: fixed;
     bottom: 3rem;
     right: 3rem;
     color: var(--color-white);
@@ -351,13 +353,12 @@ a.header-menu-item.active {
     text-align: center;
     box-shadow: 5px 5px 0px 0px var(--color-accent);
 }
+/*----- Arrow-up end ----*/
 
-/*--------Arrow end------*/
-/*--------Footer Start------*/
+/*----- footer start ----*/
 #contact {
     background-color: var(--color-black);
     color: var(--color-white);
-
 }
 .contact-links {
     display: flex;
@@ -365,7 +366,6 @@ a.header-menu-item.active {
     gap: 1.5rem;
     font-size: 2rem;
     padding: 1rem;
-
 }
 .contact-link {
     color: var(--color-white);
@@ -373,17 +373,18 @@ a.header-menu-item.active {
 .contact-link:hover {
     color: var(--color-accent);
 }
-/*--------Footer end------*/
+/*----- footer end ----*/
+
 
 /*********************************************
     media screen : 1px ~ 1000px
 *********************************************/
-@media screen and (max-width:393px) {
+@media screen and (max-width:1000px) {
     .header {
         flex-direction: column;
         align-items: start;
     }
-    ul.header-menu { /* .header-menu 정의시 스타일 적용 안됨 */
+    ul.header-menu { 
         display: none;
     }
     .header-toggle {
@@ -448,5 +449,117 @@ a.header-menu-item.active {
 @media screen and (max-width:600px){
     .projects {
         grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+/*********************************************
+    media screen : 1px ~ 412px
+*********************************************/
+@media screen and (max-width: 412px) {
+    #home, #about, #skills, #work, #testimonial, #contact {
+        scroll-margin-top: 50px;
+    }
+    .header {
+        flex-direction: column; 
+        align-items: start;
+        padding: 0.8rem;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+    ul.header-menu {
+        display: none;
+    }
+    ul.header-menu.open {
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        position: absolute;
+        right: 0;
+        padding: 1rem 0.5rem;
+        background-color: #1b1e26;
+    }
+    ul.header-menu.open li {
+        width: 100%;
+        text-align: right; 
+    }
+    ul.header-menu.open li:hover {
+        background-color: #999;
+        padding: 0.5rem 0;
+    }
+    a.header-menu-item.active {
+        border: none;
+    }
+    .header-toggle {
+        display: block;
+    }
+    section, footer {
+        padding: 2rem 1rem;
+    }
+    .title {
+        font-size: 1.8rem;
+    }
+    .description {
+        font-size: 0.95rem;
+    }
+
+    #home {
+        padding: 5rem 1rem;
+    }
+    .home-avatar {
+        width: 180px;
+        height: 180px;
+    }
+    .home-title {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+    .home-description {
+        font-size: 1rem;
+    }
+    .majors {
+        flex-direction: column;
+        align-items: center;
+    }
+    .major {
+        width: 100%;       
+    }
+    .job {
+        justify-content: center;
+    }
+    .skills {
+        grid-template-columns: 1fr;
+    }
+    .categories {
+        flex-direction: column;
+        align-items: center;
+    }
+    .category {
+        width: 90%;
+        padding: 0.5rem 1rem;   
+    }
+    .projects {
+        grid-template-columns: repeat(1, 1fr);  
+    }
+    .testimonials {
+        margin: 1rem;
+    }
+    .testimonial {
+        flex-direction: column;
+    }
+    .testimonial:nth-child(even) .testimonial-img {
+        order: 0;
+    }
+    .testimonial-img {
+        width: 100px;
+        height: 100px;
+    }
+    .arrow-up {
+        bottom: 1rem;
+        right: 1rem;
+        font-size: 1.5rem;
+        width: 2.5rem;
+        height: 2.5rem;
     }
 }
