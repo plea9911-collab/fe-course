@@ -15,8 +15,6 @@ export default function App() {
     loadData();
   }, []);
 
-  console.log("data :: ", data);
-  
 
   return (
     <>
