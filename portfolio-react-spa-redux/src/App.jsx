@@ -19,9 +19,8 @@ export default function App() {
 
   return (
     <>
-      <Header data={data?.header}
-              like={like} />
-       <Outlet context={{data: data?.content, like, setLike }} />   {/*//여러개를 입력할때 프로퍼티를 입력해주고 객체로 묶어주기 */}
+      <Header data={data?.header} />
+       <Outlet context={{data: data?.content }} />   {/*//여러개를 입력할때 프로퍼티를 입력해주고 객체로 묶어주기 */}
       <Footer data={data?.footer}/>
     </>
   )
